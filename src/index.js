@@ -29,7 +29,7 @@ const colorChanger = {
       const random = randomIntegerFromInterval(0, colors.length - 1);
 
       document.body.style.backgroundColor = colors[random];
-      console.log('changing color');
+      // console.log('changing color');
     }, 1000);
   },
 
@@ -37,7 +37,7 @@ const colorChanger = {
     clearInterval(this.intervalId);
     this.intervalId = null;
     this.isActive = false;
-    console.log('i am stopped');
+    // console.log('i am stopped');
   },
 };
 

@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luxplanjay/webpack-starter-kit.git"
+    "url": "https://github.com/anastasyah86/goit-js-hw-11-color-switch"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luxplanjay/webpack-starter-kit/issues"
+    "url": "https://anastasyah86.github.io/goit-js-hw-11-color-switch/"
   },
   "homepage": "https://github.com/luxplanjay/webpack-starter-kit#readme",
   "devDependencies": {

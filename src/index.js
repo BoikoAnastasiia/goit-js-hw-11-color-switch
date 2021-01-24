@@ -10,23 +10,36 @@ const colors = [
 
 const refs = {
   startBtn: document.querySelector('button[data-action="start"]'),
-  stopBtn: document.querySelector('button[data-action="start"]'),
+  stopBtn: document.querySelector('button[data-action="stop"]'),
 };
-
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-// 1. Будет функция которая будет выбирать рандомный индекс массива
-// 2. Функция которая принимает мин и макс длину массива
-// и применяет высчитывает нужный вам индекс
-// И после цвет который соответствует этому индексу уже применяете
-const random = randomIntegerFromInterval(0, colors.length - 1);
 
-const start = function () {
-  setInterval(() => {
-    document.body.style.backgroundColor = colors[random];
-  }, 500);
+const colorChanger = {
+  intervalId: null,
+  isActive: false,
+  start() {
+    if (this.isActive) {
+      return;
+    }
+
+    this.isActive = true;
+    this.intervalId = setInterval(() => {
+      const random = randomIntegerFromInterval(0, colors.length - 1);
+
+      document.body.style.backgroundColor = colors[random];
+      console.log('changing color');
+    }, 1000);
+  },
+
+  stop() {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+    this.isActive = false;
+    console.log('i am stopped');
+  },
 };
-// start();
-refs.startBtn.addEventListener('click', start);
-// console.log(refs.startBtn);
+
+refs.startBtn.addEventListener('click', colorChanger.start.bind(colorChanger));
+refs.stopBtn.addEventListener('click', colorChanger.stop.bind(colorChanger));
